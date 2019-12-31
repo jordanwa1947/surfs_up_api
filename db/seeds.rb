@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Uncomment the following lines to clear the data base
+# though expect this process to take upto an hour
+# require 'database_cleaner'
+
+# DatabaseCleaner.strategy = :truncation
+# DatabaseCleaner.clean
+# scraper = MswSpotScraper.new
+# scraper.loop_through_ids
+
+surfing_spots = File.join Rails.root, "app/data/surfing_spots.csv"
+CSV.foreach(surfing_spots, headers: true) do |row|
+  spot = Spot.new
+  spot.location = row['location']
+  spot.spot_id = row['spot_id']
+  spot.save
+end
