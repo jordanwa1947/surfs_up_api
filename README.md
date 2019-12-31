@@ -1,24 +1,12 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rake db:{create,migrate,seed}
 
-Things you may want to cover:
+bundle
 
-* Ruby version
+##Routes
 
-* System dependencies
+/api/v1/location => case-insensitive, substring search returns all matching locations with their ids
 
-* Configuration
+/api/v1/locations => returns all locations with their ids
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+/api/v1/:spot_id/surf => returns the current surf at a location
