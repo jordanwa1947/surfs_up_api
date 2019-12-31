@@ -11,6 +11,6 @@ surfing_spots = File.join Rails.root, "app/data/surfing_spots.csv"
 CSV.foreach(surfing_spots, headers: true) do |row|
   spot = Spot.new
   spot.location = row['location']
-  spot.id = row['spot_id']
+  spot.spot_id = row['spot_id']
   spot.save
 end

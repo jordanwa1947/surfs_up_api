@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 2019_12_31_042511) do
 
   create_table "spots", force: :cascade do |t|
     t.string "location"
+    t.integer "spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location"], name: "index_spots_on_location"
+    t.index ["spot_id"], name: "index_spots_on_spot_id"
   end
 
 end
