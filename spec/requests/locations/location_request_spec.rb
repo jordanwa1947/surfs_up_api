@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'Locations API' do
+describe 'Locations Requests' do
   it 'sends a list of all locations' do
-    spot_1 = Spot.create(location: 'Hawaii', spot_id: 1)
+    spot_1 = Spot.create(location: 'Hawaii', spot_id: 1, location_coords: "POINT(50.4184 -5.0997)")
     spot_2 = Spot.create(location: 'Newquay', spot_id: 1)
     spot_3 = Spot.create(location: 'Nashbolim', spot_id: 1)
 
@@ -15,6 +15,7 @@ describe 'Locations API' do
     expect(locations.class).to eq(Hash)
     expect(locations["data"].count).to eq(3)
     expect(locations["data"][0]["attributes"]["location"]).to eq(spot_1.location)
+    expect(locations["data"][0]["attributes"]["location_coords"].values).to eq(spot_1.location_coords.coordinates)
     expect(locations["data"][1]["attributes"]["location"]).to eq(spot_2.location)
     expect(locations["data"][2]["attributes"]["location"]).to eq(spot_3.location)
   end
@@ -23,7 +24,7 @@ describe 'Locations API' do
     spot_1 = Spot.create(location: 'Hawaii', spot_id: 1)
     spot_2 = Spot.create(location: 'Newquay', spot_id: 1)
     spot_3 = Spot.create(location: 'Nashbolim', spot_id: 1)
-    spot_4 = Spot.create(location: 'Nashawim', spot_id: 1)
+    spot_4 = Spot.create(location: 'Nashawim', spot_id: 1, location_coords: "POINT(50.4184 -5.0997)")
 
     get '/api/v1/search/locations?query=haw'
 
