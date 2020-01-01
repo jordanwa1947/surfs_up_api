@@ -14,12 +14,12 @@ ActiveRecord::Schema.define(version: 2019_12_31_042511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "spots", force: :cascade do |t|
     t.string "location"
     t.integer "spot_id"
-    t.geography "location_coords", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location"], name: "index_spots_on_location"

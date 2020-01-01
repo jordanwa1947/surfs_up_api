@@ -3,7 +3,8 @@ class CreateSpots < ActiveRecord::Migration[5.2]
     create_table :spots do |t|
       t.string :location
       t.integer :spot_id, unique: true
-      t.st_point :location_coords, geographic: true
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
