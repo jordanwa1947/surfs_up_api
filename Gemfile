@@ -11,7 +11,6 @@ gem 'rack-cors'
 gem 'httparty'
 gem 'nokogiri'
 gem 'fast_jsonapi'
-gem 'activerecord-postgis-adapter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

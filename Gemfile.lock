@@ -33,9 +33,6 @@ GEM
       activemodel (= 5.2.4.1)
       activesupport (= 5.2.4.1)
       arel (>= 9.0)
-    activerecord-postgis-adapter (5.2.2)
-      activerecord (~> 5.1)
-      rgeo-activerecord (~> 6.0)
     activestorage (5.2.4.1)
       actionpack (= 5.2.4.1)
       activerecord (= 5.2.4.1)
@@ -145,16 +142,12 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
-    rgeo (2.1.1)
-    rgeo-activerecord (6.2.1)
-      activerecord (>= 5.0)
-      rgeo (>= 1.0.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.0)
+    rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-rails (3.9.0)
@@ -200,7 +193,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter
   bootsnap (>= 1.1.0)
   byebug
   capybara
