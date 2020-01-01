@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Facade Methods' do
   it 'should return a formatted forecast object with info about the location' do
     VCR.use_cassette('msw_webpage') do
-      spot_1 = Spot.create(location: 'Hawaii', spot_id: 1, location_coords: "POINT(50.4184 -5.0997)")
+      spot_1 = Spot.create(location: 'Hawaii', spot_id: 1, latitude: 50.4184, longitude: -5.0997)
 
       facade = MswFacade.new(1, spot_1)
 

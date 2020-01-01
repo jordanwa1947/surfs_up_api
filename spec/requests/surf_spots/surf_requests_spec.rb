@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Surf Requests' do
   it 'sends surf information corresponding to a spot id' do
     VCR.use_cassette('msw_webpage') do
-      spot_1 = Spot.create(location: 'Hawaii', spot_id: 1, location_coords: "POINT(50.4184 -5.0997)")
+      spot_1 = Spot.create(location: 'Hawaii', spot_id: 1, latitude: 50.4184, longitude: -5.0997)
       spot_2 = Spot.create(location: 'Newquay', spot_id: 1)
       spot_3 = Spot.create(location: 'Nashbolim', spot_id: 1)
 
