@@ -45,7 +45,8 @@ class MswSpotScraper
     spot = Spot.new
     spot.spot_id = data[:id]
     spot.location = data[:name]
-    spot.location_coords = "POINT(#{data[:coords][:lat]} #{data[:coords][:lon]})"
+    spot.latitude = data[:coords][:lat]
+    spot.longitude = data[:coords][:lon]
     spot.save
   end
 

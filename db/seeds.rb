@@ -8,6 +8,7 @@ CSV.foreach(surfing_spots, headers: true) do |row|
   spot = Spot.new
   spot.location = row['location']
   spot.spot_id = row['spot_id']
-  spot.location_coords = "POINT(#{row['lat']} #{row['lon']})"
+  spot.latitude = row['lat']
+  spot.longitude = row['lon']
   spot.save
 end
