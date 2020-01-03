@@ -1,13 +1,59 @@
+# Surfs Up API
 
-rake db:{create,migrate,seed}
+## Versions
 
-bundle
+Ruby version: ``ruby '2.6.2'``
 
-rake create_spots_csv
+Rails version: ``'rails', '~> 5.2.4'``
+
+Database: Postgresql 12.1
+
+##### Production:
+-``gem 'rails', '~> 5.1.6'``
+-``gem 'pg', '>= 0.18', '< 2.0'``
+-``gem 'puma', '~> 3.7'``
+-``gem 'rack-cors'``
+-``gem 'httparty'``
+-``gem 'nokogiri'``
+-``gem 'fast_jsonapi'``
+
+##### Testing & Development:
+-``gem 'pry'``
+-``gem 'rspec-rails'``
+-``gem 'capybara'``
+-``gem 'launchy'``
+-``gem 'shoulda-matchers', '~> 3.1'``
+-``gem 'vcr'``
+-``gem 'webmock'``
+-``gem 'shoulda-matchers', '>= 4.0.0'``
+-``gem 'database_cleaner'``
+
+
+## Setup
+
+Running the rake db:seed command loads the entire
+CSV file into the database
+``rake db:{create,migrate,seed}``
+
+
+Install Dependencies: ``bundle install``
+
+## Web scraping
+
+Running This command will visit every surfing spot's
+endpoint on MagicSeaweed.com and add it's id,
+coordinates and name to the CSV in the data directory.
+This will write over whatever data you have in
+that file and will likely take around two hours to
+complete. The spot ids are used to create the url
+necessary to retrieve a specific forecast for a location
+``rake create_spots_csv``
 
 ##Routes
 
-/api/v1/search/locations?query=string => case-insensitive, substring search returns all matching locations with their ids
+/api/v1/search/locations?query=string =>
+case-insensitive, substring search returns all
+matching locations with their ids
 
 https://surf-forecast-api.herokuapp.com/api/v1/search/locations?query=newquay
 
